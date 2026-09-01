@@ -1,0 +1,21 @@
+{
+  "name": "@news-ui/ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Lit-based Web Component design system, news- prefixed custom elements",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "vitest run --exclude \"**/*.a11y.test.js\"",
+    "test:a11y": "vitest run a11y"
+  },
+  "dependencies": {
+    "@news-ui/tokens": "*",
+    "lit": "^3.3.3"
+  },
+  "devDependencies": {
+    "axe-core": "^4.13.0",
+    "jsdom": "^30.0.1"
+  }
+}

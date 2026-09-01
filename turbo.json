@@ -14,15 +14,11 @@
     },
     "test": {
       "dependsOn": ["^build"],
-      "outputs": ["coverage/**"]
+      "outputs": []
     },
     "test:a11y": {
       "dependsOn": ["^build"],
       "outputs": []
-    },
-    "storybook": {
-      "cache": false,
-      "persistent": true
     }
   }
 }

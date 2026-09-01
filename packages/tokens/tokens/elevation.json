@@ -1,0 +1,7 @@
+{
+  "elevation": {
+    "1": { "$value": "0 1px 2px rgba(13, 15, 20, 0.08)", "$type": "string" },
+    "2": { "$value": "0 4px 8px rgba(13, 15, 20, 0.12)", "$type": "string" },
+    "3": { "$value": "0 8px 24px rgba(13, 15, 20, 0.16)", "$type": "string" }
+  }
+}

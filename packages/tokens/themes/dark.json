@@ -1,0 +1,19 @@
+{
+  "color": {
+    "surface": {
+      "default": { "$value": "#12141a", "$type": "color" },
+      "raised": { "$value": "#1c1f27", "$type": "color" }
+    },
+    "text": {
+      "primary": { "$value": "#f4f5f7", "$type": "color" },
+      "inverse": { "$value": "#12141a", "$type": "color" }
+    },
+    "border": {
+      "default": { "$value": "#2c303a", "$type": "color" }
+    },
+    "action": {
+      "primary": { "$value": "#5b82ff", "$type": "color" },
+      "primary-hover": { "$value": "#7a99ff", "$type": "color" }
+    }
+  }
+}

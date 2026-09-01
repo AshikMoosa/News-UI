@@ -26,8 +26,15 @@ npm run build
 npm run dev
 npm run lint
 npm run test
+npm run test:a11y
+npm run storybook
 ```
 
 ## Status
 
-Phase 0 (tooling scaffold) complete. Design system and product app packages are pending.
+- Phase 0 (tooling scaffold) — done.
+- Phase 1 (design system) — in progress: `@news-ui/tokens` (color, spacing, radius,
+  typography, motion, elevation, light/dark theming) and `@news-ui/ui`'s first
+  component, `news-button`, are built end-to-end (component + Vitest unit tests +
+  axe-core a11y tests + Storybook story).
+- `apps/web` (product app) — not started.
