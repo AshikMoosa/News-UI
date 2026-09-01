@@ -1,12 +1,12 @@
 # News UI
 
-A framework-agnostic Web Component design system (Lit) plus a vanilla JS/TS product app that consumes it directly — no React/Next required. Built as a Turborepo + npm workspaces monorepo.
+A framework-agnostic Web Component design system (Lit) plus a vanilla JS product app that consumes it directly — no React/Next, no TypeScript. Built as a Turborepo + npm workspaces monorepo.
 
 ## Structure
 
 ```
 apps/
-  web/                 # framework-agnostic product app (Vite + TS)
+  web/                 # framework-agnostic product app (Vite + JS)
 packages/
   ui/                  # Lit component library (design system)
   tokens/              # W3C DTCG token source + Style Dictionary build

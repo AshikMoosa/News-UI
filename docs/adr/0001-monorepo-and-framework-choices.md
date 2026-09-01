@@ -18,19 +18,20 @@ and what package manager ties it together.
 
 ## Decision
 
-| Decision              | Choice                                                                                  | Rationale                                                                                                                                                                  |
-| --------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Work location         | Linked local machine via Claude desktop app, opened in VS Code                          | Keeps one canonical git history, avoids cloud/local drift                                                                                                                  |
-| Monorepo tool         | Turborepo + npm workspaces                                                              | Fast to set up, strong caching, widely recognized in interviews without Nx's config overhead                                                                               |
-| Component framework   | Lit (thin wrapper over Web Components)                                                  | Small runtime, native Shadow DOM/Custom Elements alignment, easy to justify "why not vanilla" in interviews                                                                |
-| Product app framework | Framework-agnostic — vanilla JS/TS consuming the Lit components directly, no React/Next | Proves the design system truly works framework-agnostically; framework wrappers (`@lit/react` etc.) still get built as a DX exercise but aren't required by the app itself |
-| Package manager       | npm (workspaces-native, zero extra tooling)                                             | Matches Turborepo's default path, one less tool to explain                                                                                                                 |
+| Decision              | Choice                                                                               | Rationale                                                                                                                                                                            |
+| --------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Work location         | Linked local machine via Claude desktop app, opened in VS Code                       | Keeps one canonical git history, avoids cloud/local drift                                                                                                                            |
+| Monorepo tool         | Turborepo + npm workspaces                                                           | Fast to set up, strong caching, widely recognized in interviews without Nx's config overhead                                                                                         |
+| Component framework   | Lit (thin wrapper over Web Components)                                               | Small runtime, native Shadow DOM/Custom Elements alignment, easy to justify "why not vanilla" in interviews                                                                          |
+| Product app framework | Framework-agnostic — vanilla JS consuming the Lit components directly, no React/Next | Proves the design system truly works framework-agnostically; framework wrappers (`@lit/react` etc.) still get built as a DX exercise but aren't required by the app itself           |
+| Language              | Plain JavaScript, no TypeScript                                                      | Explicit project constraint — the whole design system and app are authored in JS; no `.ts` files, no build-time type stripping. Static analysis is limited to what ESLint can catch. |
+| Package manager       | npm (workspaces-native, zero extra tooling)                                          | Matches Turborepo's default path, one less tool to explain                                                                                                                           |
 
 ## Repository layout
 
 ```
 apps/
-  web/                 # framework-agnostic product app (Vite + TS)
+  web/                 # framework-agnostic product app (Vite + JS)
 packages/
   ui/                  # Lit component library (design system)
   tokens/              # W3C DTCG token source + Style Dictionary build
@@ -56,3 +57,8 @@ require a restructure.
 - Turborepo + npm workspaces is a lighter-weight choice than Nx; it trades
   some advanced generator/plugin tooling for a setup that's fast to explain
   and reason about in an interview context.
+- No TypeScript means no compile-time type checking anywhere in the repo.
+  ESLint (`no-unused-vars`, etc.) and runtime tests are the only safety nets;
+  component contracts (properties, events, slots, CSS custom properties,
+  parts) rely on disciplined JSDoc comments and Custom Elements Manifest
+  generation rather than a type checker enforcing them.
