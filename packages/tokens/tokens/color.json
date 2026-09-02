@@ -1,30 +1,73 @@
 {
   "color": {
     "neutral": {
-      "0": { "$value": "#ffffff", "$type": "color" },
-      "100": { "$value": "#f4f5f7", "$type": "color" },
-      "200": { "$value": "#e2e4e9", "$type": "color" },
-      "700": { "$value": "#3a3f4b", "$type": "color" },
-      "900": { "$value": "#12141a", "$type": "color" }
+      "cream": {
+        "$value": "#f6f1e9",
+        "$type": "color",
+        "$description": "Page background — warm cream, like newsprint."
+      },
+      "card": {
+        "$value": "#ede8df",
+        "$type": "color",
+        "$description": "Panel / well surface, slightly darker than the page."
+      },
+      "secondary": {
+        "$value": "#e8e2d8",
+        "$type": "color",
+        "$description": "Subdued surface for secondary buttons and hovers."
+      },
+      "muted": {
+        "$value": "#ddd8ce",
+        "$type": "color",
+        "$description": "Faint fills — track backgrounds, disabled wells."
+      },
+      "muted-ink": {
+        "$value": "#5c5448",
+        "$type": "color",
+        "$description": "Low-emphasis text — captions, bylines, hints."
+      },
+      "ink": {
+        "$value": "#16100a",
+        "$type": "color",
+        "$description": "Primary ink — body text, headlines, hairline rules."
+      },
+      "ink-hover": { "$value": "#2c2218", "$type": "color" },
+      "ink-active": { "$value": "#3a2f22", "$type": "color" }
     },
-    "brand": {
-      "500": { "$value": "#2f5eff", "$type": "color" },
-      "600": { "$value": "#1f46d1", "$type": "color" }
+    "accent": {
+      "default": {
+        "$value": "#9e1b1b",
+        "$type": "color",
+        "$description": "Masthead red — section labels, links, primary calls to action."
+      },
+      "hover": { "$value": "#7d1515", "$type": "color" },
+      "active": { "$value": "#6a1111", "$type": "color" }
+    },
+    "feedback": {
+      "success": { "$value": "#1a6b3c", "$type": "color" },
+      "warning": { "$value": "#8b6914", "$type": "color" }
     },
     "surface": {
-      "default": { "$value": "{color.neutral.0}", "$type": "color" },
-      "raised": { "$value": "{color.neutral.100}", "$type": "color" }
+      "default": { "$value": "{color.neutral.cream}", "$type": "color" },
+      "card": { "$value": "{color.neutral.card}", "$type": "color" },
+      "raised": { "$value": "{color.neutral.secondary}", "$type": "color" },
+      "muted": { "$value": "{color.neutral.muted}", "$type": "color" }
     },
     "text": {
-      "primary": { "$value": "{color.neutral.900}", "$type": "color" },
-      "inverse": { "$value": "{color.neutral.0}", "$type": "color" }
+      "primary": { "$value": "{color.neutral.ink}", "$type": "color" },
+      "muted": { "$value": "{color.neutral.muted-ink}", "$type": "color" },
+      "inverse": { "$value": "{color.neutral.cream}", "$type": "color" }
     },
     "border": {
-      "default": { "$value": "{color.neutral.200}", "$type": "color" }
+      "default": { "$value": "{color.neutral.ink}", "$type": "color" }
     },
     "action": {
-      "primary": { "$value": "{color.brand.500}", "$type": "color" },
-      "primary-hover": { "$value": "{color.brand.600}", "$type": "color" }
+      "primary": { "$value": "{color.neutral.ink}", "$type": "color" },
+      "primary-hover": { "$value": "{color.neutral.ink-hover}", "$type": "color" },
+      "primary-active": { "$value": "{color.neutral.ink-active}", "$type": "color" },
+      "danger": { "$value": "{color.accent.default}", "$type": "color" },
+      "danger-hover": { "$value": "{color.accent.hover}", "$type": "color" },
+      "danger-active": { "$value": "{color.accent.active}", "$type": "color" }
     }
   }
 }

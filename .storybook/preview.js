@@ -8,6 +8,16 @@ const preview = {
     a11y: {
       test: 'error',
     },
+    // Preview against the design system's real surface colors instead of
+    // Storybook's default white canvas, so component contrast/borders read
+    // the way they will in the product app.
+    backgrounds: {
+      default: 'newspaper',
+      values: [
+        { name: 'newspaper', value: '#f6f1e9' },
+        { name: 'newspaper-dark', value: '#16100a' },
+      ],
+    },
   },
 };
 

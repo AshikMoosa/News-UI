@@ -1,19 +1,26 @@
 {
   "color": {
     "surface": {
-      "default": { "$value": "#12141a", "$type": "color" },
-      "raised": { "$value": "#1c1f27", "$type": "color" }
+      "default": { "$value": "#16100a", "$type": "color" },
+      "card": { "$value": "#211a12", "$type": "color" },
+      "raised": { "$value": "#2a2118", "$type": "color" },
+      "muted": { "$value": "#3a2f22", "$type": "color" }
     },
     "text": {
-      "primary": { "$value": "#f4f5f7", "$type": "color" },
-      "inverse": { "$value": "#12141a", "$type": "color" }
+      "primary": { "$value": "#f6f1e9", "$type": "color" },
+      "muted": { "$value": "#b8af9e", "$type": "color" },
+      "inverse": { "$value": "#16100a", "$type": "color" }
     },
     "border": {
-      "default": { "$value": "#2c303a", "$type": "color" }
+      "default": { "$value": "#ddd8ce", "$type": "color" }
     },
     "action": {
-      "primary": { "$value": "#5b82ff", "$type": "color" },
-      "primary-hover": { "$value": "#7a99ff", "$type": "color" }
+      "primary": { "$value": "#f6f1e9", "$type": "color" },
+      "primary-hover": { "$value": "#e8e2d8", "$type": "color" },
+      "primary-active": { "$value": "#ddd8ce", "$type": "color" },
+      "danger": { "$value": "#c73e3e", "$type": "color" },
+      "danger-hover": { "$value": "#b53232", "$type": "color" },
+      "danger-active": { "$value": "#a32828", "$type": "color" }
     }
   }
 }

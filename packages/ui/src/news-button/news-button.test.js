@@ -25,6 +25,29 @@ describe('news-button', () => {
     expect(el.getAttribute('variant')).toBe('primary');
   });
 
+  it('defaults to the md size', () => {
+    expect(el.size).toBe('md');
+    expect(el.getAttribute('size')).toBe('md');
+  });
+
+  it.each(['primary', 'secondary', 'outline', 'ghost', 'danger'])(
+    'reflects the "%s" variant to the host attribute',
+    async (variant) => {
+      el.variant = variant;
+      await el.updateComplete;
+      expect(el.getAttribute('variant')).toBe(variant);
+    },
+  );
+
+  it.each(['xs', 'sm', 'md', 'lg'])(
+    'reflects the "%s" size to the host attribute',
+    async (size) => {
+      el.size = size;
+      await el.updateComplete;
+      expect(el.getAttribute('size')).toBe(size);
+    },
+  );
+
   it('exposes the button via the "button" shadow part', () => {
     const button = el.shadowRoot.querySelector('button');
     expect(button.getAttribute('part')).toBe('button');

@@ -1,7 +1,7 @@
 {
   "motion": {
     "duration": {
-      "fast": { "$value": "120ms", "$type": "duration" },
+      "fast": { "$value": "150ms", "$type": "duration" },
       "base": { "$value": "200ms", "$type": "duration" }
     },
     "easing": {

@@ -1,15 +1,40 @@
 {
   "font": {
     "family": {
-      "base": {
-        "$value": "system-ui, -apple-system, 'Segoe UI', sans-serif",
-        "$type": "fontFamily"
+      "display": {
+        "$value": "'Playfair Display', Georgia, 'Times New Roman', serif",
+        "$type": "fontFamily",
+        "$description": "Headlines and other large editorial display text."
+      },
+      "body": {
+        "$value": "'Source Serif 4', Georgia, serif",
+        "$type": "fontFamily",
+        "$description": "Article copy and other long-form reading text."
+      },
+      "mono": {
+        "$value": "'Space Mono', 'Courier New', monospace",
+        "$type": "fontFamily",
+        "$description": "Uppercase UI chrome: buttons, labels, bylines, datelines."
       }
     },
     "size": {
-      "sm": { "$value": "14px", "$type": "dimension" },
-      "md": { "$value": "16px", "$type": "dimension" },
-      "lg": { "$value": "20px", "$type": "dimension" }
+      "sm": { "$value": "0.875rem", "$type": "dimension" },
+      "md": { "$value": "1rem", "$type": "dimension" },
+      "lg": { "$value": "1.25rem", "$type": "dimension" }
+    },
+    "label-size": {
+      "2xs": {
+        "$value": "0.625rem",
+        "$type": "dimension",
+        "$description": "Smallest uppercase mono chrome, e.g. the xs button size."
+      },
+      "xs": { "$value": "0.6875rem", "$type": "dimension" },
+      "sm": {
+        "$value": "0.75rem",
+        "$type": "dimension",
+        "$description": "Default size for buttons, badges, and section labels."
+      },
+      "md": { "$value": "0.8125rem", "$type": "dimension" }
     },
     "weight": {
       "regular": { "$value": "400", "$type": "fontWeight" },
@@ -19,6 +44,14 @@
     "line-height": {
       "tight": { "$value": "1.2", "$type": "number" },
       "base": { "$value": "1.5", "$type": "number" }
+    },
+    "letter-spacing": {
+      "normal": { "$value": "0em", "$type": "dimension" },
+      "wide": {
+        "$value": "0.1em",
+        "$type": "dimension",
+        "$description": "Uppercase mono chrome — buttons, bylines, section labels."
+      }
     }
   }
 }

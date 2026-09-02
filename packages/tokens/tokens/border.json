@@ -1,0 +1,16 @@
+{
+  "border": {
+    "width": {
+      "hairline": {
+        "$value": "0.0625rem",
+        "$type": "dimension",
+        "$description": "1px rule — the default border weight everywhere (buttons, cards, dividers)."
+      },
+      "thick": {
+        "$value": "0.1875rem",
+        "$type": "dimension",
+        "$description": "3px rule — used for emphasis dividers, e.g. above a section head."
+      }
+    }
+  }
+}
