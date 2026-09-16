@@ -43,6 +43,16 @@ type="checkbox">` is the real control), plus `role="switch"` on that
   Same **Form-Associated Custom Element** pattern, built on a native
   `<textarea>`. Dispatches `news-input` (every keystroke) and `news-change`
   (on commit).
+- `news-select` — a dropdown built on a native `<select>` (native appearance
+  suppressed via `appearance: none`, a custom chevron drawn over it),
+  `::part(label|field|select|chevron|message)`. `<option>`s can't be
+  reliably slotted into a `<select>` living in Shadow DOM from light-DOM
+  children across browsers, so options are supplied as a JS array property
+  (`{ value, label, disabled? }`) that the component renders itself. Also a
+  **Form-Associated Custom Element**; supports an optional `placeholder`
+  that renders a disabled, hidden `<option value="">`, which is what makes
+  `required` validation meaningful (otherwise a native select always has
+  _something_ selected). Dispatches `news-change` with `{ value }`.
 
 ## Usage
 
@@ -63,6 +73,7 @@ import '@news-ui/ui/src/news-radio-group/news-radio-group.js';
 import '@news-ui/ui/src/news-radio/news-radio.js';
 import '@news-ui/ui/src/news-switch/news-switch.js';
 import '@news-ui/ui/src/news-textarea/news-textarea.js';
+import '@news-ui/ui/src/news-select/news-select.js';
 ```
 
 ```html
@@ -81,13 +92,16 @@ import '@news-ui/ui/src/news-textarea/news-textarea.js';
 <news-switch name="notifications" checked>Email me about new articles</news-switch>
 
 <news-textarea label="Comments" name="comments" rows="6"></news-textarea>
+
+<!-- `options` is a JS property, not an attribute — set it from script:
+     selectEl.options = [{ value: 'world', label: 'World' }, ...] -->
+<news-select name="section" label="Section" placeholder="Choose a section…" required></news-select>
 ```
 
 ## Form-Associated Custom Elements
 
-`news-input`, `news-checkbox`, `news-radio-group`, `news-switch`, and
-`news-textarea` (and every form control built after them — select) follow
-the same pattern: `static formAssociated = true`,
+`news-input`, `news-checkbox`, `news-radio-group`, `news-switch`,
+`news-textarea`, and `news-select` follow the same pattern: `static formAssociated = true`,
 `this._internals = this.attachInternals()` in the constructor, and
 `this._internals.setFormValue(...)` / `setValidity(...)` kept in sync in
 `updated()`. This is a real browser API (Chrome/Firefox/Safari have shipped

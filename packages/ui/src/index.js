@@ -6,3 +6,4 @@ export { NewsRadio } from './news-radio/news-radio.js';
 export { NewsRadioGroup } from './news-radio-group/news-radio-group.js';
 export { NewsSwitch } from './news-switch/news-switch.js';
 export { NewsTextarea } from './news-textarea/news-textarea.js';
+export { NewsSelect } from './news-select/news-select.js';
