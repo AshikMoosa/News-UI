@@ -23,6 +23,15 @@ Lit-based Web Component design system. Every custom element is named with a
 type="checkbox">` is visually hidden but positioned exactly over the
   visible box, so it stays the real click/focus/AT target. Dispatches
   `news-change` with `{ checked }`.
+- `news-radio-group` + `news-radio` — a round hairline ring per option, one
+  selectable at a time. `news-radio-group` is the **Form-Associated Custom
+  Element** (owns the value, validity, and a roving-`tabindex` ARIA
+  `radiogroup` with Arrow-key navigation); `news-radio` is a plain
+  presentational `role="radio"` child — not form-associated itself, and
+  deliberately not backed by a native `<input type="radio">`, since native
+  radio grouping via a shared `name` doesn't reach across the separate
+  Shadow DOM tree each `news-radio` has. Dispatches `news-change` with
+  `{ value }` on the group.
 
 ## Usage
 
@@ -39,6 +48,8 @@ fallbacks):
 import '@news-ui/ui/src/news-button/news-button.js';
 import '@news-ui/ui/src/news-input/news-input.js';
 import '@news-ui/ui/src/news-checkbox/news-checkbox.js';
+import '@news-ui/ui/src/news-radio-group/news-radio-group.js';
+import '@news-ui/ui/src/news-radio/news-radio.js';
 ```
 
 ```html
@@ -48,12 +59,17 @@ import '@news-ui/ui/src/news-checkbox/news-checkbox.js';
 <news-input label="Email address" type="email" name="email" required></news-input>
 
 <news-checkbox name="terms" required>I agree to the terms of service</news-checkbox>
+
+<news-radio-group name="delivery" label="Delivery method" required>
+  <news-radio value="print">Print edition</news-radio>
+  <news-radio value="digital">Digital edition</news-radio>
+</news-radio-group>
 ```
 
 ## Form-Associated Custom Elements
 
-`news-input` and `news-checkbox` (and every form control built after them —
-radio, select, switch) follow the same pattern: `static formAssociated = true`,
+`news-input`, `news-checkbox`, and `news-radio-group` (and every form control
+built after them — select, switch) follow the same pattern: `static formAssociated = true`,
 `this._internals = this.attachInternals()` in the constructor, and
 `this._internals.setFormValue(...)` / `setValidity(...)` kept in sync in
 `updated()`. This is a real browser API (Chrome/Firefox/Safari have shipped
