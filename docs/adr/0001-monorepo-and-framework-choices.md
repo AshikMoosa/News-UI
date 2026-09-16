@@ -2,7 +2,10 @@
 
 ## Status
 
-Accepted
+Accepted. Partially amended by [ADR 0003](0003-narrow-repo-scope-to-design-system.md) —
+the product app (`apps/web`) and CI/governance scaffolding described below
+were removed from this repository; the decisions on component framework,
+package manager, and language are unaffected and still apply.
 
 ## Context
 

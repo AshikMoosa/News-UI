@@ -19,7 +19,7 @@ export default [
     },
   },
   {
-    files: ['packages/ui/**/*.js', 'apps/web/**/*.js', '.storybook/**/*.js'],
+    files: ['packages/ui/**/*.js', '.storybook/**/*.js'],
     languageOptions: {
       globals: { ...globals.browser },
     },

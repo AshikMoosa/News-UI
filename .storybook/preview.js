@@ -10,7 +10,7 @@ const preview = {
     },
     // Preview against the design system's real surface colors instead of
     // Storybook's default white canvas, so component contrast/borders read
-    // the way they will in the product app.
+    // the way they will in a consuming application.
     backgrounds: {
       default: 'newspaper',
       values: [

@@ -4,14 +4,12 @@
   "private": true,
   "type": "module",
   "packageManager": "npm@11.8.0",
-  "description": "Framework-agnostic Web Component design system (Lit) + vanilla JS product app",
+  "description": "News UI — a framework-agnostic Web Component design system built with Lit",
   "workspaces": [
-    "apps/*",
     "packages/*"
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "test:a11y": "turbo run test:a11y",
