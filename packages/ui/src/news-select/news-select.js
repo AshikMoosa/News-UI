@@ -114,6 +114,22 @@ export class NewsSelect extends BaseElement {
       cursor: not-allowed;
     }
 
+    /* The dropdown popup itself is drawn by the OS/browser UA, mostly
+       outside normal CSS control — background-color/color set directly on
+       <option> is the one lever Chromium and Firefox both honor for it.
+       WebKit (Safari) does not respect this, and there is no CSS
+       workaround: it always renders its native popup colors regardless.
+       Getting pixel-identical theming there would mean replacing the
+       native <select> with a from-scratch custom listbox. */
+    select option {
+      background-color: var(--news-color-surface-default);
+      color: var(--news-color-text-primary);
+    }
+
+    select option:disabled {
+      color: var(--news-color-text-muted);
+    }
+
     .chevron {
       position: absolute;
       top: 50%;
