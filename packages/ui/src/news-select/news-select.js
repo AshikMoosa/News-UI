@@ -313,9 +313,7 @@ export class NewsSelect extends BaseElement {
           ${this.placeholder ? html`<option value="" disabled hidden>${this.placeholder}</option>` : nothing}
           ${this.options.map(
             (option) =>
-              html`<option value=${option.value} ?disabled=${option.disabled}>
-                ${option.label}
-              </option>`,
+              html`<option value=${option.value} ?disabled=${option.disabled}>${option.label}</option>`,
           )}
         </select>
         <span class="chevron" part="chevron" aria-hidden="true">
