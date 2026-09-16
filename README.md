@@ -17,12 +17,13 @@ for the full rationale.
 
 ## Status
 
-Early and actively developed. Two components exist so far:
+Early and actively developed. Three components exist so far:
 
-| Component     | What it is                                                     | Notes                                                                     |
-| ------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `news-button` | Primary/secondary/outline/ghost/danger variants, 4 sizes       |                                                                           |
-| `news-input`  | Labeled text field with prefix/suffix and hint/error messaging | A real [Form-Associated Custom Element](#form-associated-custom-elements) |
+| Component       | What it is                                                     | Notes                                                                     |
+| --------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `news-button`   | Primary/secondary/outline/ghost/danger variants, 4 sizes       |                                                                           |
+| `news-input`    | Labeled text field with prefix/suffix and hint/error messaging | A real [Form-Associated Custom Element](#form-associated-custom-elements) |
+| `news-checkbox` | Square hairline box, checkmark/indeterminate states            | Also a [Form-Associated Custom Element](#form-associated-custom-elements) |
 
 Everything else in the [component roadmap](#component-roadmap) below is
 planned but not yet built.
@@ -80,7 +81,7 @@ for the full token catalogue.
 
 ## Form-Associated Custom Elements
 
-Form controls (`news-input`, and everything in that row of the roadmap
+Form controls (`news-input`, `news-checkbox`, and the rest of the roadmap
 below) are real [Form-Associated Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals):
 `static formAssociated = true` plus `ElementInternals` for form value and
 constraint-validation participation — the same contract a native `<input>`
@@ -95,15 +96,16 @@ for the test-only shim that makes these components unit-testable, and
 ## Component roadmap
 
 Tracking the full surface sketched out in the design reference; only the
-top row is built.
+top rows are built.
 
-| Component                                 | Status     |
-| ----------------------------------------- | ---------- |
-| Button                                    | ✅ Built   |
-| Text input                                | ✅ Built   |
-| Checkbox, Radio, Switch, Select, Textarea | 📋 Planned |
-| Badge, Card, Alert, Tooltip, Modal        | 📋 Planned |
-| Tabs, Breadcrumb, Pagination, Accordion   | 📋 Planned |
+| Component                               | Status     |
+| --------------------------------------- | ---------- |
+| Button                                  | ✅ Built   |
+| Text input                              | ✅ Built   |
+| Checkbox                                | ✅ Built   |
+| Radio, Switch, Select, Textarea         | 📋 Planned |
+| Badge, Card, Alert, Tooltip, Modal      | 📋 Planned |
+| Tabs, Breadcrumb, Pagination, Accordion | 📋 Planned |
 
 ## Project structure
 

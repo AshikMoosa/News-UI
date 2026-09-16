@@ -17,6 +17,12 @@ Lit-based Web Component design system. Every custom element is named with a
   native `<form>` submission and constraint validation like a real
   `<input>` — no hidden mirror input, no form-library glue. Dispatches
   `news-input` (every keystroke) and `news-change` (on commit).
+- `news-checkbox` — a square hairline box that fills solid ink when checked,
+  with checkmark/indeterminate-dash icons, `::part(label|input|box|text)`.
+  Also a **Form-Associated Custom Element**; the native `<input
+type="checkbox">` is visually hidden but positioned exactly over the
+  visible box, so it stays the real click/focus/AT target. Dispatches
+  `news-change` with `{ checked }`.
 
 ## Usage
 
@@ -32,6 +38,7 @@ fallbacks):
 ```js
 import '@news-ui/ui/src/news-button/news-button.js';
 import '@news-ui/ui/src/news-input/news-input.js';
+import '@news-ui/ui/src/news-checkbox/news-checkbox.js';
 ```
 
 ```html
@@ -39,12 +46,14 @@ import '@news-ui/ui/src/news-input/news-input.js';
 <news-button variant="danger" size="sm">Delete</news-button>
 
 <news-input label="Email address" type="email" name="email" required></news-input>
+
+<news-checkbox name="terms" required>I agree to the terms of service</news-checkbox>
 ```
 
 ## Form-Associated Custom Elements
 
-`news-input` (and every form control built after it — checkbox, radio,
-select, switch) follows the same pattern: `static formAssociated = true`,
+`news-input` and `news-checkbox` (and every form control built after them —
+radio, select, switch) follow the same pattern: `static formAssociated = true`,
 `this._internals = this.attachInternals()` in the constructor, and
 `this._internals.setFormValue(...)` / `setValidity(...)` kept in sync in
 `updated()`. This is a real browser API (Chrome/Firefox/Safari have shipped
