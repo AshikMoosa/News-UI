@@ -38,6 +38,11 @@ type="checkbox">` is visually hidden but positioned exactly over the
 type="checkbox">` is the real control), plus `role="switch"` on that
   input so assistive tech announces it as a switch rather than a checkbox,
   per the WAI-ARIA switch pattern. Dispatches `news-change` with `{ checked }`.
+- `news-textarea` — the multi-line counterpart to `news-input`: labeled,
+  hairline-bordered, with a hint or error message, `::part(label|textarea|message)`.
+  Same **Form-Associated Custom Element** pattern, built on a native
+  `<textarea>`. Dispatches `news-input` (every keystroke) and `news-change`
+  (on commit).
 
 ## Usage
 
@@ -57,6 +62,7 @@ import '@news-ui/ui/src/news-checkbox/news-checkbox.js';
 import '@news-ui/ui/src/news-radio-group/news-radio-group.js';
 import '@news-ui/ui/src/news-radio/news-radio.js';
 import '@news-ui/ui/src/news-switch/news-switch.js';
+import '@news-ui/ui/src/news-textarea/news-textarea.js';
 ```
 
 ```html
@@ -73,12 +79,15 @@ import '@news-ui/ui/src/news-switch/news-switch.js';
 </news-radio-group>
 
 <news-switch name="notifications" checked>Email me about new articles</news-switch>
+
+<news-textarea label="Comments" name="comments" rows="6"></news-textarea>
 ```
 
 ## Form-Associated Custom Elements
 
-`news-input`, `news-checkbox`, `news-radio-group`, and `news-switch` (and
-every form control built after them — select) follow the same pattern: `static formAssociated = true`,
+`news-input`, `news-checkbox`, `news-radio-group`, `news-switch`, and
+`news-textarea` (and every form control built after them — select) follow
+the same pattern: `static formAssociated = true`,
 `this._internals = this.attachInternals()` in the constructor, and
 `this._internals.setFormValue(...)` / `setValidity(...)` kept in sync in
 `updated()`. This is a real browser API (Chrome/Firefox/Safari have shipped
