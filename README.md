@@ -17,7 +17,7 @@ for the full rationale.
 
 ## Status
 
-Early and actively developed. Four components exist so far:
+Early and actively developed. Five components exist so far:
 
 | Component                         | What it is                                                     | Notes                                                                                                |
 | --------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -25,6 +25,7 @@ Early and actively developed. Four components exist so far:
 | `news-input`                      | Labeled text field with prefix/suffix and hint/error messaging | A real [Form-Associated Custom Element](#form-associated-custom-elements)                            |
 | `news-checkbox`                   | Square hairline box, checkmark/indeterminate states            | Also a [Form-Associated Custom Element](#form-associated-custom-elements)                            |
 | `news-radio-group` + `news-radio` | Round hairline rings, one selectable at a time                 | The group is the Form-Associated Custom Element; `news-radio` is a presentational ARIA `radio` child |
+| `news-switch`                     | Hairline track + sliding thumb, sm/md sizes                    | Also a [Form-Associated Custom Element](#form-associated-custom-elements); `role="switch"`           |
 
 Everything else in the [component roadmap](#component-roadmap) below is
 planned but not yet built.
@@ -82,8 +83,8 @@ for the full token catalogue.
 
 ## Form-Associated Custom Elements
 
-Form controls (`news-input`, `news-checkbox`, `news-radio-group`, and the
-rest of the roadmap below) are real [Form-Associated Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals):
+Form controls (`news-input`, `news-checkbox`, `news-radio-group`,
+`news-switch`, and the rest of the roadmap below) are real [Form-Associated Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals):
 `static formAssociated = true` plus `ElementInternals` for form value and
 constraint-validation participation — the same contract a native `<input>`
 honors, with no hidden mirror input and no form-library glue.
@@ -105,7 +106,8 @@ top rows are built.
 | Text input                              | ✅ Built   |
 | Checkbox                                | ✅ Built   |
 | Radio group                             | ✅ Built   |
-| Switch, Select, Textarea                | 📋 Planned |
+| Switch                                  | ✅ Built   |
+| Select, Textarea                        | 📋 Planned |
 | Badge, Card, Alert, Tooltip, Modal      | 📋 Planned |
 | Tabs, Breadcrumb, Pagination, Accordion | 📋 Planned |
 
