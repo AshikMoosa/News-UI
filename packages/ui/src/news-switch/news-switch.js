@@ -24,7 +24,7 @@ import { BaseElement } from '../base-element.js';
  *
  * @csspart label - The `<label>` wrapping the whole control.
  * @csspart input - The native, visually-hidden `<input type="checkbox">`.
- * @csspart track - The pill-shaped track.
+ * @csspart track - The square track.
  * @csspart thumb - The sliding thumb.
  * @csspart text - The wrapper around the slotted label content.
  *
@@ -99,7 +99,7 @@ export class NewsSwitch extends BaseElement {
       border-style: solid;
       border-width: var(--news-border-width-hairline, 0.0625rem);
       border-color: var(--news-color-border-default);
-      border-radius: var(--news-radius-full, 999px);
+      border-radius: var(--news-radius-none, 0);
       background-color: var(--news-color-surface-raised);
       transition:
         background-color var(--news-motion-duration-base, 200ms) ease,
@@ -129,7 +129,7 @@ export class NewsSwitch extends BaseElement {
       left: 0.125rem;
       width: var(--news-switch-thumb-size, 0.875rem);
       height: var(--news-switch-thumb-size, 0.875rem);
-      border-radius: var(--news-radius-full, 999px);
+      border-radius: var(--news-radius-none, 0);
       background-color: var(--news-color-text-muted);
       transform: translateY(-50%);
       transition:
