@@ -1,18 +1,26 @@
 {
   "name": "@news-ui/tokens",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
   "type": "module",
   "description": "Design tokens (DTCG source) built to CSS custom properties and JS constants via Style Dictionary",
+  "license": "MIT",
   "main": "dist/js/tokens.js",
   "exports": {
     ".": "./dist/js/tokens.js",
     "./css": "./dist/css/tokens.css",
     "./css/dark": "./dist/css/tokens.dark.css"
   },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "node build-tokens.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "style-dictionary": "^5.5.2"

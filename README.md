@@ -136,6 +136,7 @@ Every non-trivial choice is recorded as an ADR in [`docs/adr`](docs/adr):
 - [0001 — Monorepo and framework choices](docs/adr/0001-monorepo-and-framework-choices.md)
 - [0002 — Adopt the "classic newspaper" design system](docs/adr/0002-newspaper-design-system.md)
 - [0003 — Narrow this repository's scope to the design system](docs/adr/0003-narrow-repo-scope-to-design-system.md)
+- [0004 — npm publishing, licensing, and versioning strategy](docs/adr/0004-npm-publishing-and-versioning.md)
 
 ## Tech stack
 
@@ -162,3 +163,23 @@ Every non-trivial choice is recorded as an ADR in [`docs/adr`](docs/adr):
   (presentational) and `news-input` (Form-Associated): a `.js` file, a
   `.test.js` (Vitest), a `.a11y.test.js` (axe-core), and a `.stories.js`
   (Storybook), all colocated under `packages/ui/src/<component-name>/`.
+
+## Releasing
+
+Published to npm under the `@news-ui` organization, MIT-licensed — see
+[ADR 0004](docs/adr/0004-npm-publishing-and-versioning.md) for the full
+rationale. Each release is a curated **pack** of components (this repo has
+no automated release pipeline; publishing is manual):
+
+1. Bump `packages/ui/package.json`'s version — **minor** for a new pack of
+   components, **patch** for a fix to an already-released pack.
+2. If the pack touched `packages/tokens`, bump its version too (patch for
+   token fixes, minor for new tokens), and update `@news-ui/ui`'s
+   dependency range on `@news-ui/tokens` in `packages/ui/package.json` to
+   match.
+3. Update whichever `CHANGELOG.md`(s) actually changed
+   (`packages/tokens/CHANGELOG.md`, `packages/ui/CHANGELOG.md`).
+4. Publish `@news-ui/tokens` first (`@news-ui/ui` depends on it), then
+   `@news-ui/ui` — each package's `prepublishOnly` script rebuilds
+   (tokens) or re-runs lint + both test suites (ui) automatically before
+   the actual publish.
