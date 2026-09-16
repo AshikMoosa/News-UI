@@ -5,5 +5,6 @@ export default defineConfig({
     name: '@news-ui/ui',
     environment: 'jsdom',
     include: ['src/**/*.test.js'],
+    setupFiles: ['./src/test-setup/element-internals-polyfill.js'],
   },
 });
