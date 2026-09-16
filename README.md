@@ -17,8 +17,8 @@ for the full rationale.
 
 ## Status
 
-Early and actively developed. All of the original form-control set is now
-built — seven components:
+Early and actively developed. Every form control in the design reference is
+now built — eight components:
 
 | Component                         | What it is                                                      | Notes                                                                                                |
 | --------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -29,6 +29,7 @@ built — seven components:
 | `news-switch`                     | Hairline track + sliding thumb, sm/md sizes                     | Also a [Form-Associated Custom Element](#form-associated-custom-elements); `role="switch"`           |
 | `news-textarea`                   | Multi-line counterpart to `news-input`                          | Also a [Form-Associated Custom Element](#form-associated-custom-elements)                            |
 | `news-select`                     | Dropdown built on a native `<select>`, options as a JS property | Also a [Form-Associated Custom Element](#form-associated-custom-elements)                            |
+| `news-slider`                     | Flat hairline track with a square thumb, live value display     | Also a [Form-Associated Custom Element](#form-associated-custom-elements)                            |
 
 Everything else in the [component roadmap](#component-roadmap) below is
 planned but not yet built.
@@ -87,7 +88,7 @@ for the full token catalogue.
 ## Form-Associated Custom Elements
 
 Every form control (`news-input`, `news-checkbox`, `news-radio-group`,
-`news-switch`, `news-textarea`, `news-select`) is a real [Form-Associated Custom Element](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals):
+`news-switch`, `news-textarea`, `news-select`, `news-slider`) is a real [Form-Associated Custom Element](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals):
 `static formAssociated = true` plus `ElementInternals` for form value and
 constraint-validation participation — the same contract a native `<input>`
 honors, with no hidden mirror input and no form-library glue.
@@ -112,6 +113,7 @@ controls are now built; everything below is not yet started.
 | Switch                                  | ✅ Built   |
 | Textarea                                | ✅ Built   |
 | Select                                  | ✅ Built   |
+| Slider                                  | ✅ Built   |
 | Badge, Card, Alert, Tooltip, Modal      | 📋 Planned |
 | Tabs, Breadcrumb, Pagination, Accordion | 📋 Planned |
 

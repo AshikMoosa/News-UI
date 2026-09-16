@@ -53,6 +53,13 @@ type="checkbox">` is the real control), plus `role="switch"` on that
   that renders a disabled, hidden `<option value="">`, which is what makes
   `required` validation meaningful (otherwise a native select always has
   _something_ selected). Dispatches `news-change` with `{ value }`.
+- `news-slider` — a flat, hairline-bordered track with a square thumb, built
+  on a native `<input type="range">`, `::part(header|label|value|input)`.
+  When `label` is set it's shown alongside the live numeric value
+  (right-aligned, bold). Also a **Form-Associated Custom Element**; unlike
+  the other form controls it has no `required`/`error`/`hint` — a range
+  always has a value, it can never be "empty". Dispatches `news-input`
+  while dragging and `news-change` on release.
 
 ## Usage
 
@@ -74,6 +81,7 @@ import '@news-ui/ui/src/news-radio/news-radio.js';
 import '@news-ui/ui/src/news-switch/news-switch.js';
 import '@news-ui/ui/src/news-textarea/news-textarea.js';
 import '@news-ui/ui/src/news-select/news-select.js';
+import '@news-ui/ui/src/news-slider/news-slider.js';
 ```
 
 ```html
@@ -96,12 +104,14 @@ import '@news-ui/ui/src/news-select/news-select.js';
 <!-- `options` is a JS property, not an attribute — set it from script:
      selectEl.options = [{ value: 'world', label: 'World' }, ...] -->
 <news-select name="section" label="Section" placeholder="Choose a section…" required></news-select>
+
+<news-slider name="font-size" label="Font size" value="16" min="12" max="24"></news-slider>
 ```
 
 ## Form-Associated Custom Elements
 
 `news-input`, `news-checkbox`, `news-radio-group`, `news-switch`,
-`news-textarea`, and `news-select` follow the same pattern: `static formAssociated = true`,
+`news-textarea`, `news-select`, and `news-slider` follow the same pattern: `static formAssociated = true`,
 `this._internals = this.attachInternals()` in the constructor, and
 `this._internals.setFormValue(...)` / `setValidity(...)` kept in sync in
 `updated()`. This is a real browser API (Chrome/Firefox/Safari have shipped
